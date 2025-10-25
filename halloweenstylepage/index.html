@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halloween Login 🎃</title>
+<style>
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, rgba(15, 0, 25, 0.45), rgba(5, 0, 10, 0.45)), url("halloween-bg.png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+
+  .container {
+    background: rgba(30, 0, 45, 0.85);
+    border: 2px solid #8e44ad;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 0 30px rgba(155, 89, 182, 0.6);
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(6px);
+  }
+
+  h2 {
+    color: #d6a3ff;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px #a463d8;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #8e44ad;
+    border-radius: 10px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #eee;
+    font-size: 1rem;
+    transition: 0.3s;
+  }
+
+  input::placeholder {
+    color: #c7a4ff;
+  }
+
+  input:focus {
+    border-color: #b67fff;
+    box-shadow: 0 0 10px #b67fff;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #6f2da8, #b67fff);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(182, 127, 255, 0.5);
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(182, 127, 255, 0.7);
+  }
+
+  .switch {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+
+  .switch span {
+    color: #d6a3ff;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .bats {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .bat {
+    position: absolute;
+    width: 70px;
+    opacity: 0.9;
+    animation: fly 6s linear infinite;
+  }
+
+  @keyframes fly {
+    0% { transform: translateX(-150px) translateY(0) rotate(0deg); }
+    50% { transform: translateX(110vw) translateY(-50px) rotate(10deg); }
+    100% { transform: translateX(-150px) translateY(50px) rotate(0deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="bats" id="batContainer"></div>
+
+<div class="container" id="authBox">
+  <h2 id="formTitle">🔮 Login</h2>
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="handleAuth()">Enter the Realm</button>
+  <div class="switch">New here? <span onclick="toggleForm()">Summon an Account</span></div>
+</div>
+
+<script>
+  let isLogin = true;
+  let users = JSON.parse(localStorage.getItem('users')) || {};
+
+  function toggleForm() {
+    isLogin = !isLogin;
+    document.getElementById('formTitle').innerText = isLogin ? "🔮 Login" : "🕯️ Sign Up";
+    document.querySelector("button").innerText = isLogin ? "Enter the Realm" : "Join the Coven";
+    document.querySelector(".switch").innerHTML = isLogin
+      ? 'New here? <span onclick="toggleForm()">Summon an Account</span>'
+      : 'Already bound? <span onclick="toggleForm()">Return to Login</span>';
+  }
+
+  function handleAuth() {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    if (!username || !password) {
+      alert("👻 Please fill all fields!");
+      return;
+    }
+
+    if (isLogin) {
+      if (users[username] && users[username] === password) {
+        localStorage.setItem('currentUser', username);
+        alert(`Welcome back, ${username}! 🕸️`);
+        location.reload();
+      } else {
+        alert("😈 Invalid credentials!");
+      }
+    } else {
+      if (users[username]) {
+        alert("🧛 Username already exists!");
+      } else {
+        users[username] = password;
+        localStorage.setItem('users', JSON.stringify(users));
+        alert("🎃 Account created successfully! You can now login.");
+        toggleForm();
+      }
+    }
+  }
+
+  const currentUser = localStorage.getItem('currentUser');
+  if (currentUser) {
+    document.getElementById('authBox').innerHTML = `
+      <h2>🕸️ Welcome, ${currentUser}</h2>
+      <p>You’ve entered the haunted realm...</p>
+      <button onclick="logout()">Logout</button>
+    `;
+  }
+
+  function logout() {
+    localStorage.removeItem('currentUser');
+    location.reload();
+  }
+
+  // 🦇 More bats with random flight
+  const batContainer = document.getElementById("batContainer");
+  for (let i = 0; i < 12; i++) {
+    const bat = document.createElement("img");
+    bat.src = "bat.png";
+    bat.classList.add("bat");
+    bat.style.top = Math.random() * 90 + "%";
+    bat.style.animationDelay = Math.random() * 4 + "s";
+    bat.style.animationDuration = (3.5 + Math.random() * 2.5) + "s";
+    bat.style.width = (50 + Math.random() * 40) + "px";
+    batContainer.appendChild(bat);
+  }
+</script>
+
+</body>
+</html>
