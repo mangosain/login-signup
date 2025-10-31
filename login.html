@@ -247,6 +247,31 @@
         alert("Invalid email or password!");
       }
     });
+    // === Show/Hide Password Feature ===
+const passField = document.getElementById("password");
+
+if (passField) {
+  // Create toggle element
+  const toggle = document.createElement("span");
+  toggle.textContent = "Show";
+  toggle.style.cursor = "pointer";
+  toggle.style.marginLeft = "8px";
+  toggle.style.color = "#007bff";
+
+  // Insert after password field
+  passField.parentNode.insertBefore(toggle, passField.nextSibling);
+
+  // Toggle logic
+  toggle.addEventListener("click", () => {
+    if (passField.type === "password") {
+      passField.type = "text";
+      toggle.textContent = "Hide";
+    } else {
+      passField.type = "password";
+      toggle.textContent = "Show";
+    }
+  });
+}
   </script>
 </body>
 </html>
