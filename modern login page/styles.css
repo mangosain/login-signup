@@ -1,0 +1,329 @@
+     * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #1f2937;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 64rem;
+            margin: 1rem;
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+
+        .brand-panel {
+            width: 50%;
+            background-color: #4f46e5;
+            color: #ffffff;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: background-color 0.5s ease;
+        }
+
+        .brand-panel h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .brand-panel p {
+            font-size: 1.125rem;
+            color: #e0e7ff;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-panel svg {
+            width: 6rem;
+            height: 6rem;
+        }
+        
+        .brand-panel.success {
+            background-color: #16a34a;
+        }
+
+        .form-panel {
+            width: 50%;
+            padding: 3rem;
+            background-color: #ffffff;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 28rem;
+            margin: auto;
+        }
+
+        .toggle-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .toggle-tabs button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #6b7280;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-tabs button:hover {
+            color: #374151;
+        }
+
+        .toggle-tabs button.active {
+            color: #4f46e5;
+            border-bottom-color: #4f46e5;
+        }
+
+        form h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group .label-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            color: #1f2937;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 2px #4f46e5;
+        }
+
+        .forgot-link {
+            font-size: 0.875rem;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            width: 100%;
+            background-color: #4f46e5;
+            color: #ffffff;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #4338ca;
+        }
+
+        #password-rules {
+            font-size: 0.875rem;
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        #password-rules p {
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            color: #6b7280;
+        }
+        #password-rules p svg {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+            stroke-width: 2;
+        }
+        #password-rules p.valid {
+            color: #16a34a;
+        }
+        #password-rules p.invalid {
+            color: #dc2626;
+        }
+
+        .terms-group {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+        .terms-group input {
+            height: 1rem;
+            width: 1rem;
+            border-color: #d1d5db;
+            border-radius: 0.25rem;
+            color: #4f46e5;
+        }
+        .terms-group label {
+            margin-left: 0.5rem;
+            font-size: 0.875rem;
+            color: #111827;
+        }
+        .terms-group a {
+            color: #4f46e5;
+            text-decoration: none;
+        }
+        .terms-group a:hover {
+            text-decoration: underline;
+        }
+
+        .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 2rem 0;
+        }
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #d1d5db;
+        }
+        .separator:not(:empty)::before {
+            margin-right: 1em;
+        }
+        .separator:not(:empty)::after {
+            margin-left: 1em;
+        }
+
+        .social-logins {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .social-logins a {
+            text-decoration: none;
+        }
+
+        .social-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .social-btn svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        .social-btn.google {
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #374151;
+        }
+        .social-btn.google:hover {
+            background-color: #f9fafb;
+        }
+
+        .social-btn.github {
+            background-color: #1f2937;
+            border: 1px solid #1f2937;
+            color: #ffffff;
+        }
+        .social-btn.github:hover {
+            background-color: #111827;
+        }
+
+        #message-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            display: none;
+        }
+        #message-box.visible {
+            display: block;
+        }
+        #message-box.success {
+            background-color: #dcfce7;
+            color: #15803d;
+        }
+        #message-box.error {
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                margin: 0.5rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            }
+
+            .brand-panel {
+                display: none;
+            }
+
+            .form-panel {
+                width: 100%;
+                padding: 2rem 1.5rem;
+            }
+
+            .social-logins {
+                flex-direction: column;
+            }
+        }

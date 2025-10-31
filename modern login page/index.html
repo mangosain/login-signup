@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OURKART 🔐 Login & Signup Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body class="bg-gray-100">
+
+    <div class="container">
+        
+        <div id="brand-panel" class="brand-panel">
+            <div style="max-width: 28rem;">
+                <h1 id="brand-title">Welcome to OURKART</h1>
+                <p id="brand-text">
+                    Your one-stop shop for everything you need. Join us and start shopping.
+                </p>
+                <div id="brand-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-panel">
+            <div class="form-container">
+                
+                <div class="toggle-tabs">
+                    <button id="login-tab" class="active">Login</button>
+                    <button id="signup-tab">Sign Up</button>
+                </div>
+
+                <form id="login-form">
+                    <h2>Welcome Back</h2>
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" name="email" required class="form-input" placeholder="you@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="label-header">
+                            <label for="login-password">Password</label>
+                            <a href="#" class="forgot-link">Forgot password?</a>
+                        </div>
+                        <input type="password" id="login-password" name="password" required class="form-input" placeholder="Enter your password">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn">Login</button>
+                    </div>
+                </form>
+
+                <form id="signup-form" class="hidden">
+                    <h2>Create Account</h2>
+                    
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" name="name" required class="form-input" placeholder="Your Full Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" name="email" required class="form-input" placeholder="you@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" name="password" required class="form-input" placeholder="Create a strong password">
+                    </div>
+                    
+                    <div id="password-rules">
+                        <p id="pass-length">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            At least 8 characters
+                        </p>
+                        <p id="pass-capital">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            One uppercase letter (A-Z)
+                        </p>
+                        <p id="pass-number">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            One number (0-9)
+                        </p>
+                        <p id="pass-special">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            One special character (e.g., ! @ # $)
+                        </p>
+                    </div>
+
+                    <div class="terms-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">
+                            I agree to the <a href="#">Terms of Service</a>
+                        </label>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <button type="submit" class="btn">Create Account</button>
+                    </div>
+                </form>
+
+                <div class="separator">Or continue with</div>
+
+                <div class="social-logins">
+                    <a href="https://accounts.google.com/" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="social-btn google">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"></path><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.223,0-9.648-3.518-11.28-8.28l-6.522,5.026C9.505,39.556,16.227,44,24,44z"></path><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571l6.19,5.238C39.712,35.619,44,29.122,44,24C44,22.659,43.862,21.35,43.611,20.083z"></D></svg>
+                            <span>Continue with Google</span>
+                        </button>
+                    </a>
+                    <a href="https://github.com/login" target="_blank" rel="noopener noreferrer">
+                        <button type="button" class="social-btn github">
+                            <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.201 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .267.18.577.688.48C19.135 20.165 22 16.418 22 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                            <span>Continue with GitHub</span>
+                        </button>
+                    </a>
+                </div>
+
+                <div id="message-box"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
