@@ -143,4 +143,45 @@
 
                 showMessage('Account created successfully!', false);
             });
+            // === Show/Hide Password Feature (with Eye Icon) ===
+
+// SVG icons
+const eyeOpen = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18">
+<path stroke-linecap="round" stroke-linejoin="round" d="M1.458 12C2.732 7.943 6.523 5 12 5c5.478 0 9.268 2.943 10.542 7-1.274 4.057-5.064 7-10.542 7-5.477 0-9.268-2.943-10.542-7z" />
+<circle cx="12" cy="12" r="3" />
+</svg>`;
+
+const eyeClosed = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" width="18" height="18">
+<path stroke-linecap="round" stroke-linejoin="round" d="M3 3l18 18M9.88 9.88A3 3 0 0112 9c1.657 0 3 1.343 3 3a3 3 0 01-.88 2.12M21 21l-2.387-2.387A10.97 10.97 0 0012 19c-5.478 0-9.268-2.943-10.542-7a10.97 10.97 0 012.507-4.281L3 3z" />
+</svg>`;
+
+// --- Helper Function ---
+const addToggleIcon = (inputElement) => {
+    if (!inputElement) return;
+    const wrapper = document.createElement('span');
+    wrapper.innerHTML = eyeClosed;
+    wrapper.style.cursor = 'pointer';
+    wrapper.style.marginLeft = '8px';
+    wrapper.style.verticalAlign = 'middle';
+    wrapper.style.color = '#007bff';
+
+    inputElement.parentNode.insertBefore(wrapper, inputElement.nextSibling);
+
+    wrapper.addEventListener('click', () => {
+        if (inputElement.type === 'password') {
+            inputElement.type = 'text';
+            wrapper.innerHTML = eyeOpen;
+        } else {
+            inputElement.type = 'password';
+            wrapper.innerHTML = eyeClosed;
+        }
+    });
+};
+
+// --- Apply to both login & signup password fields ---
+const loginPasswordInput = document.querySelector('#login-form input[type="password"]');
+addToggleIcon(loginPasswordInput);
+
+addToggleIcon(signupPasswordInput);
+
         });
